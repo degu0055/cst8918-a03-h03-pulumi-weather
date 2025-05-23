@@ -5,6 +5,6 @@ config:
   cst8918-a03-infra:publicPort: '3000'
   cst8918-a03-infra:cpu: '1'
   cst8918-a03-infra:memory: '2'
-  cst8918-a03-infra:prefixName: 'cst8918a03degu0055'
+  cst8918-a03-infra:prefixName: 'cst8918a03degu005523'
   cst8918-a03-infra:imageTag: 'v0.2.0'
 
