@@ -89,8 +89,8 @@ const containerGroup = new containerinstance.ContainerGroup(
           },
           {
             name: 'WEATHER_API_KEY',
-            value: '9f9c2512ac2f9f4b14a00a21fd0a0831', // Replace with your actual secret or use Pulumi secrets
-          },
+            value: config.requireSecret('weatherApiKey'),
+          }
         ],
         resources: {
           requests: {
