@@ -24,9 +24,6 @@ const location = {
 const units = 'metric'
 
 export async function loader() {
-  // TODO: accept query params for location and units
-  // TODO: look up location by postal code
-
   const data = await fetchWeatherData({
     lat: location.lat,
     lon: location.lon,
