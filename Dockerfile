@@ -1,5 +1,5 @@
 # Base node image
-FROM node:lts-alpine as base
+FROM node:lts-alpine AS base
 
 # Update openssl package to apply security patch (CVE-2023-6129)
 RUN apk -U add --update-cache openssl
@@ -8,7 +8,7 @@ RUN apk -U add --update-cache openssl
 ENV NODE_ENV=production
 
 # Install all node_modules including dev dependencies
-FROM base as deps
+FROM base AS deps
 
 WORKDIR /usr/src/app
 
@@ -16,7 +16,7 @@ ADD package.json package-lock.json ./
 RUN npm install --include=dev
 
 # Setup production node_modules
-FROM base as production-deps
+FROM base AS production-deps
 
 WORKDIR /usr/src/app
 
@@ -25,7 +25,7 @@ ADD package.json package-lock.json ./
 RUN npm prune --omit=dev
 
 # Build the app
-FROM base as build
+FROM base AS build
 
 WORKDIR /usr/src/app
 
