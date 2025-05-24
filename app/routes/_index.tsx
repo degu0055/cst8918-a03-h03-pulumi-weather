@@ -14,6 +14,7 @@ export const meta: MetaFunction = () => {
   ]
 }
 
+
 const location = {
   city: 'Ottawa',
   postalCode: 'K2G 1V8', // Algonquin College, Woodroffe Campus
@@ -24,9 +25,6 @@ const location = {
 const units = 'metric'
 
 export async function loader() {
-  // TODO: accept query params for location and units
-  // TODO: look up location by postal code
-
   const data = await fetchWeatherData({
     lat: location.lat,
     lon: location.lon,
@@ -37,7 +35,25 @@ export async function loader() {
 
 export default function CurrentConditions() {
   const { currentConditions } = useLoaderData<typeof loader>()
-  const weather = currentConditions.weather[0]
+
+  // Safe access with optional chaining
+  const weather = currentConditions.weather?.[0]
+
+  if (!weather) {
+    return (
+      <main
+        style={{
+          padding: '1.5rem',
+          fontFamily: 'system-ui, sans-serif',
+          lineHeight: '1.8',
+        }}
+      >
+        <h1>Remix Weather</h1>
+        <p>No weather data available.</p>
+      </main>
+    )
+  }
+
   return (
     <>
       <main
@@ -113,3 +129,4 @@ export default function CurrentConditions() {
 function getWeatherIconUrl(iconCode: string) {
   return `http://openweathermap.org/img/wn/${iconCode}@2x.png`
 }
+

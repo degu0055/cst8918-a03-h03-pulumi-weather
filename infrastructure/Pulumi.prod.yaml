@@ -5,7 +5,7 @@ config:
   cst8918-a03-infra:publicPort: '3000'
   cst8918-a03-infra:cpu: '1'
   cst8918-a03-infra:memory: '2'
-  cst8918-a03-infra:prefixName: 'cst8918a03degu005523'
+  cst8918-a03-infra:prefixName: 'cst8918a03degu005525may24'
   cst8918-a03-infra:imageTag: 'v0.2.0'
   cst8918-a03-infra:weatherApiKey:
-    secure: AAABALrqMga5rAguS1sPxQk+bkHiaJZwB++9QD1vUGGun6IWcGDm8NODbihrdGVvvBe07v9P5ZQfBi5dVi7cqQ==
+    secure: AAABAN+FeH89mVWX3v1KsapAJ6ixCvABZBvpJxRAHjDFcJpYS3HaNEYbWFC7iUF9oLJiGhfYLduZNSUfswODJg==
